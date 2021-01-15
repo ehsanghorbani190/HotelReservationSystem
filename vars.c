@@ -4,4 +4,7 @@ struct USER {
 } users[1000] ;
 struct RESERVER {
     char username[255] , password[255];
-} reversers[6];
+} reservers[6];
+struct ADMIN{
+    char username[255] , password[255];
+} admin;
