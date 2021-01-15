@@ -294,14 +294,14 @@ int main()
                     char newdate[11];
                     printf("Please enter new date for reservation: (dd/mm/yyyy)\n");
                     scanf("%s", newdate);
-                    __update_users_date(&users[k], newdate);
+                    UserExtend(&users[k], newdate);
                     printf("press anything to go back to the menu");
                     getch();
                     ch = '\0';
                 }
                 else if (ch == '2')
                 {
-                    __delete_user(&users[k]);
+                    UserDelete(&users[k]);
                     exit(0);
                 }
                 else if (ch == '3')
@@ -311,7 +311,7 @@ int main()
                     scanf("%s", user);
                     printf("Please enter new password:");
                     scanf("%s", pass);
-                    __change_info(&users[k], user, pass);
+                    UUserUpdate(&users[k], user, pass);
                     printf("press anything to go back to the menu");
                     getch();
                     ch = '\0';
