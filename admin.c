@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int __admin_delete_user__by_username(char username[]){
+int ADeleteUserUserName(char username[]){
     for (int i = 0; i < 1000; i++)
     {
         if(strcmp(users[i].username , username) == 0) {
@@ -13,7 +13,7 @@ int __admin_delete_user__by_username(char username[]){
     printf("No User Found with given username\n");
     return 0;
 }
-int __admin_delete_user__by_roomNumber(int roomNumber){
+int ADeleteUserRoomNumber(int roomNumber){
     for (int i = 0; i < 1000; i++)
     {
         if(users[i].roomNumber == roomNumber) {
@@ -25,7 +25,7 @@ int __admin_delete_user__by_roomNumber(int roomNumber){
     printf("No User Found with given username\n");
     return 0;
 }
-int __add_new_reserver(){
+int AddReserver(){
     char pwd[255] , temp;
     int i = 0, j = 0;
     for (; reservers[j].username[0] != '\0'; j++);
@@ -53,7 +53,7 @@ int __add_new_reserver(){
     strcpy(reservers[j].password , pwd);
     return 1;
 }
-int __delete_reserver(char username[]){
+int DeleteReserver(char username[]){
     for (int i = 0; i < 1000; i++)
     {
         if(strcmp(reservers[i].username , username) == 0) {
@@ -65,11 +65,11 @@ int __delete_reserver(char username[]){
     printf("No Reserver Found with given username\n");
     return 0;
 }
-void __change_admin_info(char  username[255] , char  password[255]){
+void AUpdate(char  username[255] , char  password[255]){
     strcpy(admin.username , username);
     strcpy(admin.password , password);
 }
-int __admin_search_by_username(char username[]){
+int ASearchUserUserName(char username[]){
     int isFound= 0;
    for (int i = 0; i < 1000; i++)
     {
@@ -86,7 +86,7 @@ int __admin_search_by_username(char username[]){
         return 0;
     }
 }
-int __admin_search_by_room_number(int roomNumber){
+int ASearchUserRoomNumber(int roomNumber){
 
 for (int i = 0; i < 1000; i++)
     {
@@ -98,7 +98,7 @@ for (int i = 0; i < 1000; i++)
     printf("No User Found with given room number\n");
     return 0;
 }
-int __admin_search_reserver_by_username(char username[]){
+int ASearchReserver(char username[]){
     int isFound= 0;
    for (int i = 0; i < 1000; i++)
     {

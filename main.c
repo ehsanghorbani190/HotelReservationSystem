@@ -100,7 +100,7 @@ int main()
                         char user[255];
                         printf("\nPlease enter User name:");
                         scanf("%s", user);
-                        __admin_delete_user__by_username(user);
+                        ADeleteUserUserName(user);
                         printf("press anything to go back to the menu");
                         getch();
                         ch = '\0';
@@ -110,7 +110,7 @@ int main()
                         int roomnum;
                         printf("\nPlease enter room Number:");
                         scanf("%d", &roomnum);
-                        __admin_delete_user__by_roomNumber(roomnum);
+                        ADeleteUserRoomNumber(roomnum);
                         printf("press anything to go back to the menu");
                         getch();
                         ch = '\0';
@@ -118,7 +118,7 @@ int main()
                 }
                 else if (ch == '2')
                 {
-                    __add_new_reserver();
+                    AddReserver();
                     printf("press anything to go back to the menu");
                     getch();
                     ch = '\0';
@@ -128,7 +128,7 @@ int main()
                     char user[255];
                     printf("\nPlease enter User name:");
                     scanf("%s", user);
-                    __delete_reserver(user);
+                    DeleteReserver(user);
                     printf("\npress anything to go back to the menu");
                     getch();
                     ch = '\0';
@@ -140,7 +140,7 @@ int main()
                     scanf("%s", user);
                     printf("Please enter new password:");
                     scanf("%s", pass);
-                    __change_admin_info(user, pass);
+                    AUpdate(user, pass);
                     printf("press anything to go back to the menu");
                     getch();
                     ch = '\0';
@@ -150,7 +150,7 @@ int main()
                     char user[255];
                     printf("\nPlease enter User name:");
                     scanf("%s", user);
-                    __admin_search_reserver_by_username(user);
+                    ASearchReserver(user);
                     printf("press anything to go back to the menu");
                     getch();
                     ch = '\0';
@@ -166,7 +166,7 @@ int main()
                         char user[255];
                         printf("\nPlease enter User name:");
                         scanf("%s", user);
-                        __admin_search_by_username(user);
+                        ASearchUserUserName(user);
                         printf("press anything to go back to the menu");
                         getch();
                         ch = '\0';
@@ -176,7 +176,7 @@ int main()
                         int roomnum;
                         printf("\nPlease enter room Number:");
                         scanf("%d", &roomnum);
-                        __admin_search_by_room_number(roomnum);
+                        ASearchUserRoomNumber(roomnum);
                         printf("press anything to go back to the menu");
                         getch();
                         ch = '\0';
