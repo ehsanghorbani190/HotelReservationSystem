@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "vars.c"
-void __intialize(int length){
-    for (int i = 0; i < length; i++) users[i].roomNumber = -1;
-}
 void __delete_user(struct USER * user){
     (*user).roomNumber = -1;
 }
