@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
-#include "vars.c"
 
 int __add_new_user(){
     char pwd[255] , temp;
