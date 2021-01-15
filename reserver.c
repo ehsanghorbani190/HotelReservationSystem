@@ -2,7 +2,7 @@
 #include <conio.h>
 #include <string.h>
 
-int __add_new_user(){
+int AddUser(){
     char pwd[255] , temp;
     int i = 0, j = 0;
     for (; users[j].roomNumber != -1; j++);
@@ -41,7 +41,7 @@ int __add_new_user(){
     printf("User Added Succesfully");
     return 1;
 }
-int __delete_reservation(char username[]){
+int RDeleteUser(char username[]){
     for (int i = 0; i < 1000; i++)
     {
         if(strcmp(users[i].username , username) == 0) {
@@ -53,7 +53,7 @@ int __delete_reservation(char username[]){
     printf("No User Found with given username");
     return 0;
 }
-int __search_by_username(char username[]){
+int RSearchUserName(char username[]){
     int isFound= 0;
    for (int i = 0; i < 1000; i++)
     {
@@ -70,7 +70,7 @@ int __search_by_username(char username[]){
         return 0;
     }
 }
-int __search_by_room_number(int roomNumber){
+int RSearchRoomNumber(int roomNumber){
 
 for (int i = 0; i < 1000; i++)
     {
@@ -83,7 +83,7 @@ for (int i = 0; i < 1000; i++)
     return 0;
 }
 
-void __change_reserver_info(struct RESERVER * reserver , char  username[255] , char  password[255]){
+void RUpdate(struct RESERVER * reserver , char  username[255] , char  password[255]){
     strcpy((*reserver).username , username);
     strcpy((*reserver).password , password);
 }

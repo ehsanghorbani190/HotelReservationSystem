@@ -208,12 +208,12 @@ int main()
             {
                 system("cls");
                 printf("*******************\n");
-                printf("Welcome to Hotel Reservation system ! You logged in as reserver.\n");
+                printf("Welcome to Hotel Reservation system ! You logged in as Reserver.\n");
                 printf("You can Add a reservation(press 1)\nRemove reservation by username(press 2)\nFind user(press 3)\nFind Reserver of a room(press 4)\nChange Your username and password(press 5)");
                 ch = getch();
                 if (ch == '1')
                 {
-                    __add_new_user();
+                    AddUser();
                     printf("press anything to go back to the menu");
                     getch();
                     ch = '\0';
@@ -223,7 +223,7 @@ int main()
                     char user[255];
                     printf("Please Enter username:");
                     scanf("%s", user);
-                    __delete_reservation(user);
+                    RDeleteUser(user);
                     printf("press anything to go back to the menu");
                     getch();
                     ch = '\0';
@@ -233,7 +233,7 @@ int main()
                     char user[255];
                     printf("Please Enter username:");
                     scanf("%s", user);
-                    __search_by_username(user);
+                    RSearchUserName(user);
                     printf("press anything to go back to the menu");
                     getch();
                     ch = '\0';
@@ -243,7 +243,7 @@ int main()
                     int roomnum;
                     printf("Please Enter room number:");
                     scanf("%d", &roomnum);
-                    __search_by_room_number(roomnum);
+                    RSearchRoomNumber(roomnum);
                     printf("press anything to go back to the menu");
                     getch();
                     ch = '\0';
@@ -255,7 +255,7 @@ int main()
                     scanf("%s", user);
                     printf("Please enter new password:");
                     scanf("%s", pass);
-                    __change_reserver_info(&reservers[k], user, pass);
+                    RUpdate(&reservers[k], user, pass);
                     printf("press anything to go back to the menu");
                     getch();
                     ch = '\0';
@@ -294,7 +294,7 @@ int main()
                     char newdate[11];
                     printf("Please enter new date for reservation: (dd/mm/yyyy)\n");
                     scanf("%s", newdate);
-                    __update_users_date(&users[k], newdate[]);
+                    __update_users_date(&users[k], newdate);
                     printf("press anything to go back to the menu");
                     getch();
                     ch = '\0';
