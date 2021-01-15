@@ -41,7 +41,7 @@ int __add_new_user(){
     scanf("%d" , &users[j].roomNumber);
     printf("User Added Succesfully");
     return 1;
-}//Ali , ali
+}
 int __delete_reservation(char username[]){
     for (int i = 0; i < 1000; i++)
     {
