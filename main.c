@@ -7,50 +7,7 @@
 #include "user.c"
 #include "reserver.c"
 
-void __intialize()
-{
-    FILE *adminfile;
-    adminfile = fopen("admin.dat", "rb");
-    if (!adminfile)
-    {
-        printf("No Admin data found.\n");
-        exit(0);
-    }
-    fread(&admin, sizeof(struct ADMIN), 1, adminfile);
-    fclose(adminfile);
-    FILE *reservefile, *usersfile;
-    reservefile = fopen("reserver.dat", "rb");
-    if (!reservefile)
-        for (int i = 0; i < 6; i++)
-            reservers[i].username[0] = '\0';
-    else
-    {
-        fread(&reservers, sizeof(struct RESERVER), 6, reservefile);
-    }
-    fclose(reservefile);
-    usersfile = fopen("user.dat", "rb");
-    if (!usersfile)
-        for (int i = 0; i < 1000; i++)
-            users[i].roomNumber = -1;
-    else
-    {
-        fread(&users, sizeof(struct USER), 1000, usersfile);
-    }
-    fclose(usersfile);
-}
-void __summrize()
-{
-    FILE *adminfile, *userfile, *reserverfile;
-    adminfile = fopen("admin.dat", "wb");
-    fwrite(&admin, sizeof(struct ADMIN), 1, adminfile);
-    fclose(adminfile);
-    userfile = fopen("user.dat", "wb");
-    fwrite(&users, sizeof(struct USER), 1000, userfile);
-    fclose(userfile);
-    reserverfile = fopen("reserver.dat", "wb");
-    fwrite(&reservers, sizeof(struct RESERVER), 6, reserverfile);
-    fclose(reserverfile);
-}
+
 int main()
 {
     __intialize();
@@ -101,9 +58,6 @@ int main()
                         printf("\nPlease enter User name:");
                         scanf("%s", user);
                         ADeleteUserUserName(user);
-                        printf("press anything to go back to the menu");
-                        getch();
-                        ch = '\0';
                     }
                     else if (ch == '2')
                     {
@@ -111,27 +65,15 @@ int main()
                         printf("\nPlease enter room Number:");
                         scanf("%d", &roomnum);
                         ADeleteUserRoomNumber(roomnum);
-                        printf("press anything to go back to the menu");
-                        getch();
-                        ch = '\0';
                     }
                 }
-                else if (ch == '2')
-                {
-                    AddReserver();
-                    printf("press anything to go back to the menu");
-                    getch();
-                    ch = '\0';
-                }
+                else if (ch == '2') AddReserver();
                 else if (ch == '3')
                 {
                     char user[255];
                     printf("\nPlease enter User name:");
                     scanf("%s", user);
                     DeleteReserver(user);
-                    printf("\npress anything to go back to the menu");
-                    getch();
-                    ch = '\0';
                 }
                 else if (ch == '4')
                 {
@@ -141,9 +83,6 @@ int main()
                     printf("Please enter new password:");
                     scanf("%s", pass);
                     AUpdate(user, pass);
-                    printf("press anything to go back to the menu");
-                    getch();
-                    ch = '\0';
                 }
                 else if (ch == '5')
                 {
@@ -151,9 +90,6 @@ int main()
                     printf("\nPlease enter User name:");
                     scanf("%s", user);
                     ASearchReserver(user);
-                    printf("press anything to go back to the menu");
-                    getch();
-                    ch = '\0';
                 }
                 else if (ch == '6')
                 {
@@ -167,9 +103,6 @@ int main()
                         printf("\nPlease enter User name:");
                         scanf("%s", user);
                         ASearchUserUserName(user);
-                        printf("press anything to go back to the menu");
-                        getch();
-                        ch = '\0';
                     }
                     else if (ch == '2')
                     {
@@ -177,11 +110,11 @@ int main()
                         printf("\nPlease enter room Number:");
                         scanf("%d", &roomnum);
                         ASearchUserRoomNumber(roomnum);
-                        printf("press anything to go back to the menu");
-                        getch();
-                        ch = '\0';
                     }
                 }
+                printf("press anything to go back to the menu");
+                getch();
+                ch = '\0';
             }
         }
         else
@@ -211,22 +144,13 @@ int main()
                 printf("Welcome to Hotel Reservation system ! You logged in as Reserver.\n");
                 printf("You can Add a reservation(press 1)\nRemove reservation by username(press 2)\nFind user(press 3)\nFind Reserver of a room(press 4)\nChange Your username and password(press 5)");
                 ch = getch();
-                if (ch == '1')
-                {
-                    AddUser();
-                    printf("press anything to go back to the menu");
-                    getch();
-                    ch = '\0';
-                }
+                if (ch == '1') AddUser();
                 else if (ch == '2')
                 {
                     char user[255];
                     printf("Please Enter username:");
                     scanf("%s", user);
                     RDeleteUser(user);
-                    printf("press anything to go back to the menu");
-                    getch();
-                    ch = '\0';
                 }
                 else if (ch == '3')
                 {
@@ -234,9 +158,6 @@ int main()
                     printf("Please Enter username:");
                     scanf("%s", user);
                     RSearchUserName(user);
-                    printf("press anything to go back to the menu");
-                    getch();
-                    ch = '\0';
                 }
                 else if (ch == '4')
                 {
@@ -244,9 +165,6 @@ int main()
                     printf("Please Enter room number:");
                     scanf("%d", &roomnum);
                     RSearchRoomNumber(roomnum);
-                    printf("press anything to go back to the menu");
-                    getch();
-                    ch = '\0';
                 }
                 else if (ch == '5')
                 {
@@ -256,10 +174,10 @@ int main()
                     printf("Please enter new password:");
                     scanf("%s", pass);
                     RUpdate(&reservers[k], user, pass);
-                    printf("press anything to go back to the menu");
-                    getch();
-                    ch = '\0';
                 }
+                printf("press anything to go back to the menu");
+                getch();
+                ch = '\0';
             }
         }
         else
@@ -295,9 +213,6 @@ int main()
                     printf("Please enter new date for reservation: (dd/mm/yyyy)\n");
                     scanf("%s", newdate);
                     UserExtend(&users[k], newdate);
-                    printf("press anything to go back to the menu");
-                    getch();
-                    ch = '\0';
                 }
                 else if (ch == '2')
                 {
@@ -312,10 +227,10 @@ int main()
                     printf("Please enter new password:");
                     scanf("%s", pass);
                     UUserUpdate(&users[k], user, pass);
-                    printf("press anything to go back to the menu");
-                    getch();
-                    ch = '\0';
                 }
+                printf("press anything to go back to the menu");
+                getch();
+                ch = '\0';
             }
         }
         else
